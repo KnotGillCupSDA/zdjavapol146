@@ -2,7 +2,9 @@ package com.sda.advanced.solution.zad2;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Main {
 
@@ -16,6 +18,13 @@ public class Main {
 		List<String> sorted = new ArrayList<>(unsorted);
 		sorted.sort((o1, o2) -> -o1.compareToIgnoreCase(o2));
 		return sorted;
+	}
+
+	private static List<String> sortWithStream(List<String> unsorted) {
+		return unsorted.stream()
+				//.sorted(String.CASE_INSENSITIVE_ORDER.reversed())
+				.sorted((o1, o2) -> -o1.compareToIgnoreCase(o2))
+				.collect(Collectors.toList());
 	}
 
 	public static void main(String[] args) {
