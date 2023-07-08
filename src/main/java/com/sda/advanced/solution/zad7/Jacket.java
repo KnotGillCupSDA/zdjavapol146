@@ -1,11 +1,11 @@
 package com.sda.advanced.solution.zad7;
 
 import java.util.ArrayDeque;
-import java.util.Queue;
+import java.util.Deque;
 
 public class Jacket {
 
-	private final Queue<String> stack;
+	private final Deque<String> stack;
 	private final int size;
 
 	public Jacket(int size) {
@@ -23,10 +23,11 @@ public class Jacket {
 	}
 
 	public boolean isLoaded() {
-		return false;
+		return !stack.isEmpty();
 	}
 
 	public void shot() {
-
+		String nextBullet = stack.pollLast();
+		System.out.println(nextBullet == null ? "pusty magazynek" : nextBullet);
 	}
 }
