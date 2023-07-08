@@ -1,8 +1,7 @@
 package com.sda.advanced.solution.zad3;
 
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Main {
 
@@ -17,8 +16,8 @@ public class Main {
 		for (Map.Entry<String, Integer> entry : map.entrySet()) {
 			String key = entry.getKey();
 			Integer value = entry.getValue();
-			boolean isLastElement = index == map.size() -1;
-			if(isLastElement) {
+			boolean isLastElement = index == map.size() - 1;
+			if (isLastElement) {
 				System.out.println("Klucz: " + key + ", Wartość: " + value + ".");
 			} else {
 				System.out.println("Klucz: " + key + ", Wartość: " + value + ",");
@@ -26,7 +25,18 @@ public class Main {
 			}
 			index++;
 		}
+	}
 
+	private static void printWithStream(Map<String, Integer> map) {
+		System.out.println(map.entrySet().stream()
+				.map(e -> "Klucz: " + e.getKey() + ", Wartość: " + e.getValue())
+				.collect(Collectors.joining(",\n", "", ".")));
+	}
+
+	private static void printWithStreamKrzysiek(Map<String, Integer> map) {
+		map.entrySet().stream()
+				.peek(e -> System.out.println("Klucz: " + e.getKey() + ", Wartość: " + e.getValue()))
+				.forEach( ignored -> {});
 	}
 
 	public static void main(String[] args) {
@@ -37,6 +47,8 @@ public class Main {
 		Map<String, Integer> map = Map.of("Java", 18, "Python", 1, "PHP", 0);
 
 		print(map);
+		//printWithStream(map);
+		//printWithStreamKrzysiek(map);
 	}
 
 }
