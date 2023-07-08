@@ -25,6 +25,7 @@ public class Main {
 		storage.printValues("weekDay");
 		storage.printValues("dupa");
 
+		storage.findKeysByValue("Monday");
 	}
 
 }

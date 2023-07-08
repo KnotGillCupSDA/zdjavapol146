@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Storage {
 
@@ -42,8 +43,31 @@ public class Storage {
 	}
 
 	public void findKeysByValue(String value) {
-		//iterate through values/entries (lists)
-		//if list contains value, collect/print the key
+
+		List<String> keys = new ArrayList<>();
+		//iterate through values/entries (lists/entries)
+		for (Map.Entry<String, List<String>> entry : map.entrySet()) {
+			//if list contains value, collect/print the key
+			if(entry.getValue().contains(value)) {
+				keys.add(entry.getKey());
+			}
+		}
+
+		System.out.println(keys);
+	}
+
+	public void findKeysByValueWithStream(String value) {
+		List<String> keys = map.entrySet()
+				.stream()
+				.filter(entry -> entry.getValue().contains(value))
+				.map(Map.Entry::getKey)
+				.collect(Collectors.toList());
+
+		if (keys.isEmpty()) {
+			System.out.println("Brak kluczy dla podanej wartości.");
+		} else {
+			System.out.println("Klucze dla wartości " + value + ": " + keys);
+		}
 	}
 
 
