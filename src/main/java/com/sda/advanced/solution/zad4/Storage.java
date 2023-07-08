@@ -35,7 +35,10 @@ public class Storage {
 	}
 
 	public void printValues(String key) {
-
+		List<String> values = map.get(key);
+		if (values != null) {
+			System.out.println("key: " + key + " = " + values);
+		}
 	}
 
 	public void findKeysByValue(String value) {
