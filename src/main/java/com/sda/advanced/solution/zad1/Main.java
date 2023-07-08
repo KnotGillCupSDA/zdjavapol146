@@ -8,12 +8,6 @@ import java.util.stream.Collectors;
 
 public class Main {
 
-	public static List<String> sort(List<String> unsorted) {
-		//sort the list
-
-		return sortWithStream(unsorted);
-	}
-
 	private static List<String> sortWithStream(List<String> unsorted) {
 		return unsorted.stream()
 				.sorted(Comparator.reverseOrder())
@@ -21,16 +15,17 @@ public class Main {
 	}
 
 	private static List<String> sortWithCollections(List<String> unsorted) {
-		Collections.sort(unsorted);
-		return unsorted;
+		List<String> sorted = new ArrayList<>(unsorted);
+		// Collections.reverse(sorted); - not good, just reverses the order of elements
+		Collections.sort(sorted, Collections.reverseOrder());
+		return sorted;
 	}
 
 	public static void main(String[] args) {
-		List<String> unsorted = new ArrayList<>(List.of("A", "Z", "B", "d", "a", "c"));
+		List<String> unsorted = List.of("A", "Z", "B", "d", "a", "c");
 		System.out.println(unsorted);
-
-		List<String> sorted = sort(unsorted);
-		System.out.println(sorted);
+		System.out.println(sortWithCollections(unsorted));
+		System.out.println(sortWithStream(unsorted));
 	}
 
 }
