@@ -1,11 +1,11 @@
 package com.sda.advanced.solution.zad10;
 
-class Point2D implements Movable {
+class MoveDirection {
 
 	private double x;
 	private double y;
 
-	public Point2D(double x, double y) {
+	public MoveDirection(double x, double y) {
 		this.x = x;
 		this.y = y;
 	}
@@ -26,10 +26,4 @@ class Point2D implements Movable {
 		this.y = y;
 	}
 
-	@Override
-	public void move(MoveDirection moveDirection) {
-		x = x + moveDirection.getX();
-		//the same operation, just different syntax
-		y += moveDirection.getY();
-	}
 }

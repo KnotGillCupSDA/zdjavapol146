@@ -1,6 +1,6 @@
 package com.sda.advanced.solution.zad10;
 
-class Circle {
+class Circle implements Movable {
 
 	private final Point2D center;
 	private final Point2D point;
@@ -22,5 +22,11 @@ class Circle {
 
 	public double getArea() {
 		return Math.PI * Math.pow(getRadius(), 2);
+	}
+
+	@Override
+	public void move(MoveDirection moveDirection) {
+		center.move(moveDirection);
+		point.move(moveDirection);
 	}
 }

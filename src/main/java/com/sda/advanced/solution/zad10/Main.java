@@ -8,6 +8,12 @@ public class Main {
 		System.out.println("radius: " + circle.getRadius());
 		System.out.println("perimeter: " + circle.getPerimeter());
 		System.out.println("area: " + circle.getArea());
+
+		circle.move(new MoveDirection(10.0, 0.0));
+
+		System.out.println("radius: " + circle.getRadius());
+		System.out.println("perimeter: " + circle.getPerimeter());
+		System.out.println("area: " + circle.getArea());
 	}
 
 }
