@@ -1,6 +1,6 @@
 package com.sda.advanced.solution.zad11;
 
-class Circle implements Movable {
+class Circle implements Movable, Resizable {
 
 	private final Point2D center;
 	private final Point2D point;
@@ -28,5 +28,15 @@ class Circle implements Movable {
 	public void move(MoveDirection moveDirection) {
 		center.move(moveDirection);
 		point.move(moveDirection);
+	}
+
+	@Override
+	public void resize(double resizeFactor) {
+		double distanceX = Math.abs(center.getX() - point.getX());
+		double distanceY = Math.abs(center.getY() - point.getY());
+
+		//xp = xc + dx*resizeFactor
+		point.setX(center.getX() + distanceX * resizeFactor);
+		point.setY(center.getY() + distanceY * resizeFactor);
 	}
 }
