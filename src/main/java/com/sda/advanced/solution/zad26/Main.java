@@ -23,9 +23,10 @@ public class Main {
 
 		Model model3 = new Model("Skoda Fabia", 1985, List.of(skoda1));
 		Model model4 = new Model("Skoda Octavia", 1990, List.of(skoda2, skoda3));
+		Model model5 = new Model("Skoda Rooster", 2000, List.of());
 
 		Manufacturer subaru = new Manufacturer("Subaru", 1953, List.of(model1, model2));
-		Manufacturer skoda = new Manufacturer("Skoda", 1895, List.of(model3, model4));
+		Manufacturer skoda = new Manufacturer("Skoda", 1895, List.of(model3, model4, model5));
 
 		List<Manufacturer> manufacturers = List.of(subaru, skoda);
 
