@@ -26,6 +26,6 @@ class CircleTest {
 
 	@Test
 	void shouldCalculateArea() {
-		assertEquals(Math.PI, circle.getPerimeter());
+		assertEquals(Math.PI, circle.getArea());
 	}
 }

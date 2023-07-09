@@ -2,18 +2,25 @@ package com.sda.advanced.solution.zad9;
 
 class Circle {
 
+	private final Point2D center;
+	private final Point2D point;
+
 	Circle(Point2D center, Point2D point) {
+		this.center = center;
+		this.point = point;
 	}
 
 	public double getRadius() {
-		return 0.0;
+		double dx = point.getX() - center.getX();
+		double dy = point.getY() - center.getY();
+		return Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2));
 	}
 
 	public double getPerimeter() {
-		return 0.0;
+		return 2 * Math.PI * getRadius();
 	}
 
 	public double getArea() {
-		return 0.0;
+		return Math.PI * Math.pow(getRadius(), 2);
 	}
 }
