@@ -8,6 +8,8 @@ public class Main {
 		System.out.println("radius: " + circle.getRadius());
 		System.out.println("perimeter: " + circle.getPerimeter());
 		System.out.println("area: " + circle.getArea());
+
+		System.out.println(circle.getSlicePoints());
 	}
 
 }

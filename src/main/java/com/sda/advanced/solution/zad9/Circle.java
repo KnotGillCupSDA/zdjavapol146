@@ -1,5 +1,7 @@
 package com.sda.advanced.solution.zad9;
 
+import java.util.List;
+
 class Circle {
 
 	private final Point2D center;
@@ -22,5 +24,16 @@ class Circle {
 
 	public double getArea() {
 		return Math.PI * Math.pow(getRadius(), 2);
+	}
+
+	public List<Point2D> getSlicePoints() {
+		double distanceX = center.getX() - point.getX();
+		double distanceY = center.getY() - point.getY();
+		return List.of(
+				point,
+				new Point2D(center.getX() - distanceY, center.getY() + distanceX),
+				new Point2D(center.getX() + distanceX, center.getY() + distanceY),
+				new Point2D(center.getX() + distanceY, center.getY() - distanceX)
+		);
 	}
 }
