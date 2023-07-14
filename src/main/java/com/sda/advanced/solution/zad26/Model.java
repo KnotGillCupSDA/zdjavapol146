@@ -13,4 +13,11 @@ class Model {
 		this.productionStartYear = productionStartYear;
 		this.cars = cars;
 	}
+
+	@Override
+	public String toString() {
+		return "Model{" +
+				"name='" + name +
+				'}';
+	}
 }

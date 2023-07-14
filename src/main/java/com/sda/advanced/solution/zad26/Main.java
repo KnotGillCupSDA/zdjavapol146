@@ -1,11 +1,21 @@
 package com.sda.advanced.solution.zad26;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Main {
 
 	public static List<Model> getAllModels(List<Manufacturer> manufacturers) {
-		return List.of();
+		/*List<Model> result = new ArrayList<>();
+		for (Manufacturer manufacturer : manufacturers) {
+			result.addAll(manufacturer.models);
+		}
+		return result;*/
+
+		return manufacturers.stream()
+				.flatMap(manufacturer -> manufacturer.models.stream())
+				.collect(Collectors.toList());
+
 	}
 
 	public static void main(String[] args) {
@@ -18,8 +28,8 @@ public class Main {
 		Car skoda2 = new Car("Służbowy", "Służbowe auto Tomka", CarType.COUPE);
 		Car skoda3 = new Car("Służbowy żony", "Służbowe auto Oli", CarType.SEDAN);
 
-		Model model1 = new Model("Sybaru Impreza", 1990, List.of(subaru1, subaru2));
-		Model model2 = new Model("Sybaru XV", 2010, List.of(subaru3));
+		Model model1 = new Model("Subaru Impreza", 1990, List.of(subaru1, subaru2));
+		Model model2 = new Model("Subaru XV", 2010, List.of(subaru3));
 
 		Model model3 = new Model("Skoda Fabia", 1985, List.of(skoda1));
 		Model model4 = new Model("Skoda Octavia", 1990, List.of(skoda2, skoda3));
