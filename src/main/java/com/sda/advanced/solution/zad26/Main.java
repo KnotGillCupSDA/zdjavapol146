@@ -46,7 +46,10 @@ public class Main {
 	}
 
 	private static List<String> getModelNames(List<Manufacturer> manufacturers) {
-		return null;
+		return manufacturers.stream()
+				.flatMap(manufacturer -> manufacturer.models.stream())
+				.map(model -> model.name)
+				.collect(Collectors.toList());
 	}
 
 	public static void main(String[] args) {
