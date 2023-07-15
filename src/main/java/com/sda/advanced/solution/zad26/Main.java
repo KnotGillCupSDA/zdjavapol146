@@ -45,6 +45,10 @@ public class Main {
 				.collect(Collectors.toList());
 	}
 
+	private static List<String> getModelNames(List<Manufacturer> manufacturers) {
+		return null;
+	}
+
 	public static void main(String[] args) {
 
 		Car subaru1 = new Car("Subcio", "Subaru Tomka", CarType.SEDAN);
@@ -75,6 +79,8 @@ public class Main {
 		System.out.println(getManufacturerNames(manufacturers));
 		System.out.println();
 		System.out.println(getManufacturerCreationYears(manufacturers));
+		System.out.println();
+		System.out.println(getModelNames(manufacturers));
 	}
 
 	public static class MyMapper implements Function<Model, Stream<Car>> {
