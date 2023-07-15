@@ -18,6 +18,10 @@ public class Main {
 
 	}
 
+	private static boolean getAllCars(List<Manufacturer> manufacturers) {
+		return false;
+	}
+
 	public static void main(String[] args) {
 
 		Car subaru1 = new Car("Subcio", "Subaru Tomka", CarType.SEDAN);
@@ -41,6 +45,8 @@ public class Main {
 		List<Manufacturer> manufacturers = List.of(subaru, skoda);
 
 		System.out.println(getAllModels(manufacturers));
+
+		System.out.println(getAllCars(manufacturers));
 	}
 
 }
