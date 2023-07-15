@@ -13,4 +13,8 @@ class Manufacturer {
 		this.yearOfCreation = yearOfCreation;
 		this.models = models;
 	}
+
+	public String getName() {
+		return name;
+	}
 }

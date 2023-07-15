@@ -28,7 +28,9 @@ public class Main {
 	}
 
 	private static List<String> getManufacturerNames(List<Manufacturer> manufacturers) {
-		return null;
+		return manufacturers.stream()
+				.map(Manufacturer::getName)
+				.collect(Collectors.toList());
 	}
 
 	public static void main(String[] args) {
