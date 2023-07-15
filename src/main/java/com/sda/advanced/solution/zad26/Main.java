@@ -52,6 +52,29 @@ public class Main {
 				.collect(Collectors.toList());
 	}
 
+	private static List<Integer> getProductionStartYear(List<Manufacturer> manufacturers) {
+		return manufacturers.stream()
+				.flatMap(manufacturer -> manufacturer.models.stream())
+				.map(model -> model.productionStartYear)
+				.collect(Collectors.toList());
+	}
+
+	private static List<String> getCarNames(List<Manufacturer> manufacturers) {
+		return manufacturers.stream()
+				.flatMap(manufacturer -> manufacturer.models.stream())
+				.flatMap(model -> model.cars.stream())
+				.map(car -> car.name)
+				.collect(Collectors.toList());
+	}
+
+	private static List<String> getCarDescriptions(List<Manufacturer> manufacturers) {
+		return manufacturers.stream()
+				.flatMap(manufacturer -> manufacturer.models.stream())
+				.flatMap(model -> model.cars.stream())
+				.map(car -> car.description)
+				.collect(Collectors.toList());
+	}
+
 	public static void main(String[] args) {
 
 		Car subaru1 = new Car("Subcio", "Subaru Tomka", CarType.SEDAN);
@@ -84,6 +107,12 @@ public class Main {
 		System.out.println(getManufacturerCreationYears(manufacturers));
 		System.out.println();
 		System.out.println(getModelNames(manufacturers));
+		System.out.println();
+		System.out.println(getProductionStartYear(manufacturers));
+		System.out.println();
+		System.out.println(getCarNames(manufacturers));
+		System.out.println();
+		System.out.println(getCarDescriptions(manufacturers));
 	}
 
 	public static class MyMapper implements Function<Model, Stream<Car>> {
