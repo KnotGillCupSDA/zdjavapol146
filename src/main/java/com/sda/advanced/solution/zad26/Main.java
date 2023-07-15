@@ -1,7 +1,9 @@
 package com.sda.advanced.solution.zad26;
 
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Main {
 
@@ -18,8 +20,11 @@ public class Main {
 
 	}
 
-	private static boolean getAllCars(List<Manufacturer> manufacturers) {
-		return false;
+	private static List<Car> getAllCars(List<Manufacturer> manufacturers) {
+		return manufacturers.stream()
+				.flatMap(manufacturer -> manufacturer.models.stream())
+				.flatMap(model -> model.cars.stream())
+				.collect(Collectors.toList());
 	}
 
 	public static void main(String[] args) {
@@ -44,9 +49,19 @@ public class Main {
 
 		List<Manufacturer> manufacturers = List.of(subaru, skoda);
 
+
 		System.out.println(getAllModels(manufacturers));
+		System.out.println();
 
 		System.out.println(getAllCars(manufacturers));
+	}
+
+	public static class MyMapper implements Function<Model, Stream<Car>> {
+
+		@Override
+		public Stream<Car> apply(Model model) {
+			return model.cars.stream();
+		}
 	}
 
 }
