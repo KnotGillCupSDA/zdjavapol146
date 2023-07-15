@@ -19,7 +19,7 @@ public class Playground {
 		Path zad30dir = resourceDir.resolve("zad30");
 
 		Path relativePath2 = zad30dir.resolve("someTextFile.txt");
-		System.out.println("nazwa pliku" + relativePath2.getFileName());
+		System.out.println("nazwa pliku: " + relativePath2.getFileName());
 
 		System.out.println(Files.readString(relativePath2));
 

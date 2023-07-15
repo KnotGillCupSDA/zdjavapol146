@@ -22,11 +22,16 @@ public class Main {
 	}
 
 	private static String reverse(String originalContent) {
-		return null;
+		return new StringBuilder(originalContent).reverse().toString();
 	}
 
 	private static Path reverseFileName(Path originalFile) {
-		return null;
+		String name = originalFile.getFileName().toString();
+		int i = name.lastIndexOf('.');
+		String rawName = name.substring(0, i);
+		String extension = name.substring(i);
+
+		return originalFile.getParent().resolve(reverse(rawName) + extension);
 	}
 
 }
