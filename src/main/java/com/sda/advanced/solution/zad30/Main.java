@@ -13,19 +13,17 @@ public class Main {
 		Path workingDir = Paths.get("src", "main", "resources", "zad30");
 		Path originalFile = workingDir.resolve("someTextFile.txt");
 		String originalContent = Files.readString(originalFile);
-
 		String reversedContent = reverse(originalContent);
 		Path destinationFile = reverseFileName(originalFile);
-
 		Files.writeString(destinationFile, reversedContent, StandardOpenOption.CREATE);
 
 	}
 
-	private static String reverse(String originalContent) {
+	public static String reverse(String originalContent) {
 		return new StringBuilder(originalContent).reverse().toString();
 	}
 
-	private static Path reverseFileName(Path originalFile) {
+	public static Path reverseFileName(Path originalFile) {
 		String name = originalFile.getFileName().toString();
 		int i = name.lastIndexOf('.');
 		String rawName = name.substring(0, i);
