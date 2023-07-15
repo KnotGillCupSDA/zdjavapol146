@@ -92,6 +92,15 @@ public class Main {
 				.collect(Collectors.toList());
 	}
 
+	private static List<Car> getCarsWithEvenYearOfCreation(List<Manufacturer> manufacturers) {
+
+		return manufacturers.stream()
+				.filter(manufacturer -> manufacturer.yearOfCreation % 2 == 0)
+				.flatMap(manufacturer -> manufacturer.models.stream())
+				.flatMap(model -> model.cars.stream())
+				.collect(Collectors.toList());
+	}
+
 	public static void main(String[] args) {
 
 		Car subaru1 = new Car("Subcio", "Subaru Tomka", CarType.SEDAN);
