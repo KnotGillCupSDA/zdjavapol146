@@ -75,6 +75,21 @@ public class Main {
 				.collect(Collectors.toList());
 	}
 
+	private static List<Model> getModelsWithEvenProductionYears(List<Manufacturer> manufacturers) {
+		/*List<Model> models = new ArrayList<>();
+		for (Manufacturer manufacturer : manufacturers) {
+			for (Model model : manufacturer.models) {
+				if(model.productionStartYear % 2 == 0) {
+					models.add(model);
+				}
+			}
+		}
+		return models;*/
+
+		return null;
+
+	}
+
 	public static void main(String[] args) {
 
 		Car subaru1 = new Car("Subcio", "Subaru Tomka", CarType.SEDAN);
@@ -113,6 +128,8 @@ public class Main {
 		System.out.println(getCarNames(manufacturers));
 		System.out.println();
 		System.out.println(getCarDescriptions(manufacturers));
+		System.out.println();
+		System.out.println(getModelsWithEvenProductionYears(manufacturers));
 	}
 
 	public static class MyMapper implements Function<Model, Stream<Car>> {
