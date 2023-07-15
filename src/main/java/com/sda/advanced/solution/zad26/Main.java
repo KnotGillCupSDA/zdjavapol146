@@ -33,6 +33,18 @@ public class Main {
 				.collect(Collectors.toList());
 	}
 
+	private static List<Integer> getManufacturerCreationYears(List<Manufacturer> manufacturers) {
+		/*List<Integer> years = new ArrayList<>(manufacturers.size());
+		for (Manufacturer manufacturer : manufacturers) {
+			years.add(manufacturer.yearOfCreation);
+		}
+		return years;*/
+
+		return manufacturers.stream()
+				.map(manufacturer -> manufacturer.yearOfCreation)
+				.collect(Collectors.toList());
+	}
+
 	public static void main(String[] args) {
 
 		Car subaru1 = new Car("Subcio", "Subaru Tomka", CarType.SEDAN);
@@ -61,6 +73,8 @@ public class Main {
 		System.out.println(getAllCars(manufacturers));
 		System.out.println();
 		System.out.println(getManufacturerNames(manufacturers));
+		System.out.println();
+		System.out.println(getManufacturerCreationYears(manufacturers));
 	}
 
 	public static class MyMapper implements Function<Model, Stream<Car>> {
