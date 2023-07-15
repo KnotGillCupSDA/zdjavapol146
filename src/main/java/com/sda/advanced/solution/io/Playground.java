@@ -19,13 +19,14 @@ public class Playground {
 		Path zad30dir = resourceDir.resolve("zad30");
 
 		Path relativePath2 = zad30dir.resolve("someTextFile.txt");
+		System.out.println("nazwa pliku" + relativePath2.getFileName());
 
 		System.out.println(Files.readString(relativePath2));
 
 		List<String> lines = Files.readAllLines(relativePath2);
 		System.out.println(lines);
 
-		Files.writeString(zad30dir.resolve("newFile.txt"), "cokolwiek3", StandardOpenOption.APPEND);
+		Files.writeString(zad30dir.resolve("newFile.txt"), "cokolwiek3", StandardOpenOption.CREATE);
 
 	}
 
