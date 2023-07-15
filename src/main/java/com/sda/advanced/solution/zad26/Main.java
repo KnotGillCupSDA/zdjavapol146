@@ -86,8 +86,10 @@ public class Main {
 		}
 		return models;*/
 
-		return null;
-
+		return manufacturers.stream()
+				.flatMap(manufacturer -> manufacturer.models.stream())
+				.filter(model -> model.productionStartYear % 2 == 0)
+				.collect(Collectors.toList());
 	}
 
 	public static void main(String[] args) {
