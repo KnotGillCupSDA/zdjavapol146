@@ -28,6 +28,8 @@ public class Playground {
 
 		Files.writeString(zad30dir.resolve("newFile.txt"), "cokolwiek3", StandardOpenOption.CREATE);
 
+		System.out.println(new StringBuilder("abc").reverse().toString());
+
 	}
 
 }
